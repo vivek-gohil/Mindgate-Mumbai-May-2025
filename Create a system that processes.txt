@@ -1,0 +1,33 @@
+Create a system that processes online payments using different methods such as Credit Card, Debit Card, and PayPal. Each payment method may have a unique transaction fee calculation.
+
+Requirements:
+Base Class: Payment
+
+Fields: double amount
+
+Method: double calculateFee() (abstract or overridden)
+
+Method: void processPayment() (displays total amount with fee)
+
+Derived Classes:
+
+CreditCardPayment: Fee is 2.5% of the amount.
+
+DebitCardPayment: Fee is 1.5% of the amount.
+
+PayPalPayment: Fixed fee of $2.00 per transaction.
+
+Main Class:
+
+Create an array of all Payment objects with varying types and amounts.
+
+Loop through and process each payment polymorphically.
+
+Processing Credit Card Payment:
+Amount: $100.0 | Fee: $2.5 | Total: $102.5
+
+Processing Debit Card Payment:
+Amount: $200.0 | Fee: $3.0 | Total: $203.0
+
+Processing PayPal Payment:
+Amount: $50.0 | Fee: $2.0 | Total: $52.0
