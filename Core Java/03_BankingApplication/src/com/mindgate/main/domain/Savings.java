@@ -1,11 +1,18 @@
 package com.mindgate.main.domain;
 
-public class Savings extends Account {
+import java.util.Objects;
+
+public class Savings extends Account implements Comparable<Account> {
 	private boolean isSalary;
 	private static final double MINIMUM_BALANCE = 750;
 
 	public Savings() {
 		// TODO Auto-generated constructor stub
+	}
+
+	public Savings(String name, double balance, boolean isSalary) {
+		super(name, balance);
+		this.isSalary = isSalary;
 	}
 
 	public Savings(int accountId, String name, double balance, boolean isSalary) {
@@ -41,6 +48,36 @@ public class Savings extends Account {
 
 	public static double getMinimumBalance() {
 		return MINIMUM_BALANCE;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		result = prime * result + Objects.hash(isSalary);
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Savings other = (Savings) obj;
+		return isSalary == other.isSalary;
+	}
+
+	@Override
+	public String toString() {
+		return "Savings [isSalary=" + isSalary + ", toString()=" + super.toString() + "]";
+	}
+
+	@Override
+	public int compareTo(Account account) {
+		return this.getName().compareTo(account.getName());
 	}
 
 }
